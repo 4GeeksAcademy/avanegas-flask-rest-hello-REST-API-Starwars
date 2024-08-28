@@ -1,50 +1,66 @@
-# Build a StarWars REST API
-Este proyecto consiste en desarrollar una API REST que administra un blog de StarWars, donde los usuarios pueden listar personajes y planetas, así como agregar o eliminar favoritos. La API está diseñada siguiendo principios RESTful y está conectada a una base de datos, lo que permite manejar datos dinámicos como personajes, planetas y usuarios.
+<a href="https://www.breatheco.de"><img height="280" align="right" src="https://github.com/4GeeksAcademy/flask-rest-hello/blob/main/docs/assets/badge.png?raw=true"></a>
 
-## Tecnologías Utilizadas
-- **Backend:** Python (Flask) o Node.js (Express)
-- **ORM:** SQLAlchemy para la interacción con la base de datos
-- **Base de Datos:** PostgreSQL
-- **Herramientas de Desarrollo:** Gitpod o Codespaces para un entorno de desarrollo instantáneo
-- **Pruebas de API:** Postman
+# Flask Boilerplate for Junior Developers
 
-## Características del Proyecto
-Endpoints Implementados
+Create flask API's in minutes, [📹 watch the video tutorial](https://youtu.be/ORxQ-K3BzQA).
 
-### Personajes (People)
+- [Extensive documentation here](https://start.4geeksacademy.com).
+- Integrated with Pipenv for package managing.
+- Fast deloyment to render.com or heroku with `$ pipenv run deploy`.
+- Use of `.env` file.
+- SQLAlchemy integration for database abstraction.
 
-- [GET] /people - Listar todos los personajes.
-- [GET] /people/<int:people_id> - Obtener información de un personaje específico.
+## 1) Installation
 
-### Planetas (Planets)
+This template installs itself in a few seconds if you open it for free with Codespaces (recommended) or Gitpod.
+Skip this installation steps and jump to step 2 if you decide to use any of those services.
 
-- [GET] /planets - Listar todos los planetas.
-- [GET] /planets/<int:planet_id> - Obtener información de un planeta específico.
+> Important: The boiplerplate is made for python 3.10 but you can change the `python_version` on the Pipfile.
 
-### Usuarios (Users)
+The following steps are automatically runned withing gitpod, if you are doing a local installation you have to do them manually:
 
-- [GET] /users - Listar todos los usuarios registrados.
-- [GET] /users/favorites - Listar todos los favoritos del usuario actual.
+```sh
+pipenv install;
+psql -U root -c 'CREATE DATABASE example;'
+pipenv run init;
+pipenv run migrate;
+pipenv run upgrade;
+```
 
-### Favoritos (Favorites)
+> Note: Codespaces users can connect to psql by typing: `psql -h localhost -U gitpod example`
 
-- [POST] /favorite/planet/<int:planet_id> - Añadir un planeta a favoritos del usuario.
-- [POST] /favorite/people/<int:people_id> - Añadir un personaje a favoritos del usuario.
-- [DELETE] /favorite/planet/<int:planet_id> - Eliminar un planeta de favoritos.
-- [DELETE] /favorite/people/<int:people_id> - Eliminar un personaje de favoritos.
+## 2) How to Start coding
 
-## Funcionalidades Adicionales
+There is an example API working with an example database. All your application code should be written inside the `./src/` folder.
 
-- Modelado de base de datos utilizando SQLAlchemy o TypeORM.
-- Sistema de migraciones de base de datos con Alembic (Flask) o migraciones nativas de TypeORM (Express).
-- Soporte para CRUD completo para los modelos de datos, permitiendo la administración completa del contenido a través de la API.
+- src/main.py (it's where your endpoints should be coded)
+- src/models.py (your database tables and serialization logic)
+- src/utils.py (some reusable classes and functions)
+- src/admin.py (add your models to the admin and manage your data easily)
 
-## Pruebas y Validación
-Se utilizan herramientas como Postman para probar y validar todos los endpoints de la API, asegurando que cada operación cumpla con las especificaciones y el manejo adecuado de errores.
+For a more detailed explanation, look for the tutorial inside the `docs` folder.
 
-## Mejora Continua
-Se recomienda extender el proyecto agregando endpoints adicionales para crear, modificar y eliminar personajes y planetas, proporcionando una gestión completa de la base de datos a través de la API.
+## Remember to migrate every time you change your models
 
-## Cómo Comenzar
-Utiliza el boilerplate para Flask REST o Express.js REST como punto de partida.
-Configura la base de datos localmente o utiliza un entorno de desarrollo como Gitpod.
+You have to migrate and upgrade the migrations for every update you make to your models:
+
+```bash
+$ pipenv run migrate # (to make the migrations)
+$ pipenv run upgrade  # (to update your databse with the migrations)
+```
+
+## Check your API live
+
+1. Once you run the `pipenv run start` command your API will start running live and you can open it by clicking in the "ports" tab and then clicking "open browser".
+
+> ✋ If you are working on a coding cloud like [Codespaces](https://docs.github.com/en/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port) or [Gitpod](https://www.gitpod.io/docs/configure/workspaces/ports#configure-port-visibility) make sure that your forwared port is public.
+
+## Publish/Deploy your website!
+
+This boilerplate it's 100% read to deploy with Render.com and Herkou in a matter of minutes. Please read the [official documentation about it](https://start.4geeksacademy.com/deploy).
+
+### Contributors
+
+This template was built as part of the 4Geeks Academy [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) by [Alejandro Sanchez](https://twitter.com/alesanchezr) and many other contributors. Find out more about our [Full Stack Developer Course](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer), and [Data Science Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning).
+
+You can find other templates and resources like this at the [school github page](https://github.com/4geeksacademy/).
